@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+
+[build.environment]
+  # Next 16 necesita Node 20 o superior.
+  NODE_VERSION = "20"
+
+# El plugin oficial de Next.js se encarga del resto (rutas, imágenes, cache).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
