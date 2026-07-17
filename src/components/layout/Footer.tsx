@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import PetalsFalling from "@/components/ui/PetalsFalling";
-import { CONTACTO } from "@/config/sitio";
+import { CONTACTO, HAY_REDES } from "@/config/sitio";
 
 const footerLinks = [
   { label: "Inicio", href: "/#inicio" },
@@ -82,14 +82,16 @@ export default function Footer() {
               >
                 {CONTACTO.email}
               </a>
-              <a
-                href={CONTACTO.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="no-underline text-crema/60 hover:text-dorado transition-colors"
-              >
-                {CONTACTO.instagram}
-              </a>
+              {HAY_REDES && (
+                <a
+                  href={CONTACTO.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="no-underline text-crema/60 hover:text-dorado transition-colors"
+                >
+                  {CONTACTO.instagram}
+                </a>
+              )}
             </div>
           </div>
         </div>

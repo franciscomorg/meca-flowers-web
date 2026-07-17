@@ -11,6 +11,18 @@ export default function HeroSection() {
   const [scrollVisible, setScrollVisible] = useState(false);
   const [videoDone, setVideoDone] = useState(false);
 
+  // Red de seguridad: normalmente el texto entra cuando el video termina su primera
+  // vuelta (6s). Pero si el celular bloquea la reproducción automática, ese evento no
+  // llega nunca y el hero quedaría sin texto. Estos plazos lo muestran de todos modos.
+  useEffect(() => {
+    const t1 = setTimeout(() => setContentVisible(true), 7500);
+    const t2 = setTimeout(() => setScrollVisible(true), 14000);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
   useEffect(() => {
     const video = videoRef.current;
     const wrap = wrapRef.current;

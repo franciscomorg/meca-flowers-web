@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import PetalsFalling from "@/components/ui/PetalsFalling";
-import { CONTACTO, linkWhatsApp } from "@/config/sitio";
+import { CONTACTO, HAY_REDES, linkWhatsApp } from "@/config/sitio";
 
 const contactCards = [
   {
@@ -17,12 +17,20 @@ const contactCards = [
     lines: [CONTACTO.email],
     href: `mailto:${CONTACTO.email}`,
   },
-  {
-    icon: "📱",
-    title: "Redes Sociales",
-    lines: [CONTACTO.instagram],
-    href: CONTACTO.instagramUrl,
-  },
+  // Mientras no haya redes, la tercera tarjeta muestra la ubicación.
+  HAY_REDES
+    ? {
+        icon: "📱",
+        title: "Redes Sociales",
+        lines: [CONTACTO.instagram],
+        href: CONTACTO.instagramUrl,
+      }
+    : {
+        icon: "📍",
+        title: "Ubicación",
+        lines: [CONTACTO.ciudad],
+        href: CONTACTO.mapsUrl,
+      },
 ];
 
 export default function ContactoSection() {
