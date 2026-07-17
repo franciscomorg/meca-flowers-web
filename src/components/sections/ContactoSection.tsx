@@ -39,7 +39,7 @@ export default function ContactoSection() {
           obs.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     );
     obs.observe(el);
     return () => obs.disconnect();

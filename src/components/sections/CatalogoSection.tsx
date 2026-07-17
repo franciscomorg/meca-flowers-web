@@ -70,7 +70,9 @@ export default function CatalogoSection({ galerias, portadas }: CatalogoSectionP
           obs.disconnect();
         }
       },
-      { threshold: 0.1 }
+      // threshold 0: basta con que asome. Con un porcentaje la sección del catálogo
+      // nunca aparecía, porque es mucho más alta que la pantalla y ese % era inalcanzable.
+      { threshold: 0 }
     );
     obs.observe(el);
     return () => obs.disconnect();

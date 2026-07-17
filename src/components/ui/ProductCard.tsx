@@ -67,13 +67,17 @@ export default function ProductCard({
           {disponible ? "Disponible" : "Agotado"}
         </span>
 
+        {/*
+          En pantallas táctiles no existe el hover: el botón y las flechas se muestran
+          siempre. En pantallas con mouse se mantiene el efecto de aparecer al pasar.
+        */}
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute inset-0 flex items-center justify-center bg-verde-oscuro/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 flex items-end justify-end p-2.5 transition-opacity duration-300 [@media(hover:hover)]:items-center [@media(hover:hover)]:justify-center [@media(hover:hover)]:p-0 [@media(hover:hover)]:bg-verde-oscuro/60 [@media(hover:hover)]:opacity-0 group-hover:opacity-100"
         >
-          <span className="bg-white text-verde-oscuro px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide">
+          <span className="bg-white/90 text-verde-oscuro px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide shadow-sm [@media(hover:hover)]:bg-white [@media(hover:hover)]:px-6 [@media(hover:hover)]:py-2.5 [@media(hover:hover)]:text-sm [@media(hover:hover)]:shadow-none">
             Consultar
           </span>
         </a>
@@ -83,14 +87,14 @@ export default function ProductCard({
             <button
               onClick={(e) => mover(e, -1)}
               aria-label={`Foto anterior de ${nombre}`}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 text-verde-oscuro flex items-center justify-center text-lg leading-none pb-0.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white cursor-pointer"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 text-verde-oscuro flex items-center justify-center text-lg leading-none pb-0.5 shadow-sm transition-opacity duration-300 [@media(hover:hover)]:opacity-0 group-hover:opacity-100 hover:bg-white cursor-pointer"
             >
               ‹
             </button>
             <button
               onClick={(e) => mover(e, 1)}
               aria-label={`Foto siguiente de ${nombre}`}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 text-verde-oscuro flex items-center justify-center text-lg leading-none pb-0.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white cursor-pointer"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/85 text-verde-oscuro flex items-center justify-center text-lg leading-none pb-0.5 shadow-sm transition-opacity duration-300 [@media(hover:hover)]:opacity-0 group-hover:opacity-100 hover:bg-white cursor-pointer"
             >
               ›
             </button>
